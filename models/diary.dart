@@ -1,5 +1,6 @@
 class Diary {
-  String DiaryEntry;
+  String diaryDate;
+  String diaryContent;
 
-  Diary(this.DiaryEntry);
+  Diary(this.diaryDate, this.diaryContent);
 }
