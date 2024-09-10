@@ -1,6 +1,9 @@
 class Appointment {
-  String appointmentDate;
-  String appointmentName;
+  String date;
+  String name;
 
-  Appointment(this.appointmentDate, this.appointmentName);
+  Appointment({
+    required this.date,
+    required this.name,
+  });
 }
