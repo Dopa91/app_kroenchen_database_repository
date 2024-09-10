@@ -1,6 +1,9 @@
 class User {
-  String userLoginName;
-  String loginPassword;
+  String loginName;
+  String password;
 
-  User({required this.userLoginName, required this.loginPassword});
+  User({
+    required this.loginName,
+    required this.password,
+  });
 }
