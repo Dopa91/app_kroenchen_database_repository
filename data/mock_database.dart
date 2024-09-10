@@ -1,6 +1,8 @@
 import 'database_repository.dart';
 
 class MockDatabase implements DatabaseRepository {
+  List<String> diaryData = [];
+
   @override
   void createAppointment() {}
 
