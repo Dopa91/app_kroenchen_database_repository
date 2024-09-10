@@ -1,6 +1,13 @@
-class Diary {
-  String diaryDate;
-  String diaryContent;
+class DiaryEntry {
+  String date;
+  String content;
+  bool hasFever;
+  int painAmmount;
 
-  Diary(this.diaryDate, this.diaryContent);
+  DiaryEntry({
+    required this.date,
+    required this.content,
+    required this.hasFever,
+    required this.painAmmount,
+  });
 }
