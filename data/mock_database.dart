@@ -1,3 +1,4 @@
+import '../models/user.dart';
 import 'database_repository.dart';
 
 class MockDatabase implements DatabaseRepository {
@@ -28,7 +29,7 @@ class MockDatabase implements DatabaseRepository {
   void editDiaryEntry() {}
 
   @override
-  void editUser(String userName) {}
+  void editUser(String userName, User newUserName) {}
 
   @override
   void showAppointment() {}
