@@ -1,12 +1,11 @@
 import 'dart:io';
 import 'data/database_repository.dart';
 import 'data/mock_database.dart';
-import 'functions/close_app.dart';
 import 'functions/edit_last_diary_entry.dart';
 import 'functions/login_menu.dart';
 import 'functions/main_menu.dart';
 import 'functions/new_appointment.dart';
-import 'functions/write_diary_entry.dart';
+import 'functions/get_diary_entry.dart';
 
 // Was soll in mein cli Programm
 // Login mit Password
