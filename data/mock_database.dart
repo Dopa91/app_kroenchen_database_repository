@@ -58,4 +58,9 @@ class MockDatabase implements DatabaseRepository {
   List<User> getAllUsers() {
     return userData;
   }
+
+  @override
+  List<DiaryEntry> getAllDiaryEntry() {
+    return diaryData;
+  }
 }
