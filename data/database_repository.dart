@@ -2,7 +2,7 @@ import '../models/user.dart';
 
 abstract class DatabaseRepository {
 // Einen neuen Benutzer hinzufügen (createUser)
-  void createUser(String userName, String password);
+  void createUser(String loginName, String password);
 // Bestehende Benutzerdaten bearbeiten ( editUser)
   void editUser(String userName, User newUserName);
 // Benutzerdaten löschen (deleteUser)
