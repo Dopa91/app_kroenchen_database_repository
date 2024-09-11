@@ -8,19 +8,23 @@ abstract class DatabaseRepository {
 // Benutzerdaten löschen (deleteUser)
   void deleteUser(String userName);
 // Einen neuen Tagebucheintrag erstellen (createDiaryEntry)
-  void createDiaryEntry();
+  void createDiaryEntry(
+      String date, String content, bool hasFever, int painScale);
 // Den Tagebucheintrag anzeigen lassen (showDiaryEntry)
-  void showDiaryEntry();
+  void showDiaryEntry(
+      String date, String content, bool hasFever, int painScale);
 // Tagebucheintrag bearbeiten ( editDiaryEntry)
-  void editDiaryEntry();
+  void editDiaryEntry(
+      String date, String content, bool hasFever, int painScale);
 // Tagebucheintrag löschen (deleteDiaryEntry)
-  void deleteDiaryEntry();
+  void deleteDiaryEntry(
+      String date, String content, bool hasFever, int painScale);
 // Einen neuen Termineintrag erstellen (createAppointment)
-  void createAppointment();
+  void createAppointment(String date, String name);
 // Den erstellten Termin  anzeigen lassen (showAppointment)
-  void showAppointment();
+  void showAppointment(String date, String name);
 // Termine bearbeiten ( editAppointment)
-  void editAppointment();
+  void editAppointment(String date, String name);
 // Termin löschen (deleteAppointment)
-  void deleteAppointment();
+  void deleteAppointment(String date, String name);
 }

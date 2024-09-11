@@ -3,37 +3,43 @@ import 'database_repository.dart';
 
 class MockDatabase implements DatabaseRepository {
   List<String> diaryData = [];
+  List<String> userData = [];
+  List<String> appointmentData = [];
 
   @override
-  void createAppointment() {}
+  void createAppointment(String date, String name) {}
 
   @override
-  void createDiaryEntry() {}
+  void createDiaryEntry(
+      String date, String content, bool hasFever, int painScale) {}
 
   @override
   void createUser(String userName, String password) {}
 
   @override
-  void deleteAppointment() {}
+  void deleteAppointment(String date, String name) {}
 
   @override
-  void deleteDiaryEntry() {}
+  void deleteDiaryEntry(
+      String date, String content, bool hasFever, int painScale) {}
 
   @override
   void deleteUser(String userName) {}
 
   @override
-  void editAppointment() {}
+  void editAppointment(String date, String name) {}
 
   @override
-  void editDiaryEntry() {}
+  void editDiaryEntry(
+      String date, String content, bool hasFever, int painScale) {}
 
   @override
   void editUser(String userName, User newUserName) {}
 
   @override
-  void showAppointment() {}
+  void showAppointment(String date, String name) {}
 
   @override
-  void showDiaryEntry() {}
+  void showDiaryEntry(
+      String date, String content, bool hasFever, int painScale) {}
 }
