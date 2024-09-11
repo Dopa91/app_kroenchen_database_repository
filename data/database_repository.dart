@@ -1,3 +1,4 @@
+import '../models/diary.dart';
 import '../models/user.dart';
 
 abstract class DatabaseRepository {
@@ -28,4 +29,6 @@ abstract class DatabaseRepository {
   void deleteAppointment(String date, String name);
   // Alle Benutzer erhalten
   List<User> getAllUsers();
+  // Alle Tagebucheinträge auslesen
+  List<DiaryEntry> getAllDiaryEntry();
 }
