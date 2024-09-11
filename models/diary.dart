@@ -10,4 +10,9 @@ class DiaryEntry {
     required this.hasFever,
     required this.painScale,
   });
+
+  @override
+  String toString() {
+    return "$content";
+  }
 }
