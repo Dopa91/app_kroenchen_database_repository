@@ -13,10 +13,17 @@ class MockDatabase implements DatabaseRepository {
 
   @override
   void createDiaryEntry(
-      String date, String content, bool hasFever, int painScale) {}
+      String date, String content, bool hasFever, int painScale) {
+    DiaryEntry newEntry = DiaryEntry(
+        date: date, content: content, hasFever: hasFever, painScale: painScale);
+    diaryData.add(newEntry);
+  }
 
   @override
-  void createUser(String userName, String password) {}
+  void createUser(String loginName, String password) {
+    User newLoginUser = User(loginName: loginName, password: password);
+    userData.add(newLoginUser);
+  }
 
   @override
   void deleteAppointment(String date, String name) {}
