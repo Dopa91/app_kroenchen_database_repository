@@ -39,9 +39,8 @@ class MockDatabase implements DatabaseRepository {
   void editUser(String userName, User newUserName) {}
 
   @override
-  void showAppointment(String date, String name) {}
+  void showAppointment() {}
 
   @override
-  void showDiaryEntry(
-      String date, String content, bool hasFever, int painScale) {}
+  void showDiaryEntry() {}
 }

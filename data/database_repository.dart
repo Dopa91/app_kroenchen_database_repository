@@ -11,8 +11,7 @@ abstract class DatabaseRepository {
   void createDiaryEntry(
       String date, String content, bool hasFever, int painScale);
 // Den Tagebucheintrag anzeigen lassen (showDiaryEntry)
-  void showDiaryEntry(
-      String date, String content, bool hasFever, int painScale);
+  void showDiaryEntry();
 // Tagebucheintrag bearbeiten ( editDiaryEntry)
   void editDiaryEntry(
       String date, String content, bool hasFever, int painScale);
@@ -22,7 +21,7 @@ abstract class DatabaseRepository {
 // Einen neuen Termineintrag erstellen (createAppointment)
   void createAppointment(String date, String name);
 // Den erstellten Termin  anzeigen lassen (showAppointment)
-  void showAppointment(String date, String name);
+  void showAppointment();
 // Termine bearbeiten ( editAppointment)
   void editAppointment(String date, String name);
 // Termin löschen (deleteAppointment)
