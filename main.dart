@@ -1,23 +1,19 @@
 import 'dart:io';
 
+import 'functions_main.dart';
+
 // Was soll in mein cli Programm
 // Login mit Password
 // Register
 // Neuen Tagebucheintrag erstellen
 // Beenden
-
 void main() {
   print("Herzlich Willkommen! \nIch freue mich dich begrüßen zu dürfen!");
   print("");
 
   bool appIsRunning = true;
   while (appIsRunning) {
-    print("Was möchtest du als nächstes tuen?");
-    print("");
-    print(
-        "Die App schließen? (B)eenden) \nDich einloggen? (E)inloggen) \noder \nNeu Registrieren? (R)egistrieren)");
-
-    String? userInput = stdin.readLineSync();
+    String userInput = loginMenu();
 
     switch (userInput) {
       case "Beenden" || "beenden" || "b" || "B":
@@ -35,49 +31,25 @@ void main() {
           bool userIsLoggedIn = true;
 
           while (userIsLoggedIn) {
-            print(
-                "Menüpunkte: Neuer Tagebucheinrag (1) oder Neuen Termin eintragen (2) Zum beenden der App (B) ");
-            String? userInputMenu = stdin.readLineSync();
+            String userInputMenu = mainMenu();
             switch (userInputMenu) {
               case "1":
-                print(
-                    "Dann wollen wir mal begeinnen, wie geht es dir heute? \nWie war dein Tag");
-                stdin.readLineSync();
-                print("Tagebucheintrag gespeichert!");
-                print("");
-                print(
-                    "Was möchtest du als nächstes tuen?\nTagebucheintrag ergänzen (1) Hauptmenü (H) App beenden (B)");
-
-                String? newUserInput = stdin.readLineSync();
+                String newUserInput = writeDiaryEntry();
                 switch (newUserInput) {
                   case "1":
-                    print(
-                        "Was möchtest du noch hinzufügen, was hast du vergessen? :)");
-                    stdin.readLineSync()!;
-                    print("");
-                    print("Tagebucheintrag gespeichert!");
-                    print("");
-                    userIsLoggedIn = true;
+                    userIsLoggedIn = editLastDiaryEntry(userIsLoggedIn);
                   case "H" || "h":
                     userIsLoggedIn = true;
                   case "Beenden" || "beenden" || "b" || "B":
-                    userIsLoggedIn = false;
-                    appIsRunning = false;
+                    appIsRunning = closeApp(userIsLoggedIn, appIsRunning);
+                  default:
+                    print("Da ist was schiefgelaufen");
                 }
-
               case "2":
-                print("Wann ist der Termin ?");
-                stdin.readLineSync();
-                print("");
-                print("Und was findest an dem Termin stat?");
-                stdin.readLineSync();
-                print("");
-                print("Alles klar!, Termin ist eingetragen!");
-                userIsLoggedIn = true;
+                userIsLoggedIn = newAppointment(userIsLoggedIn);
 
               case "Beenden" || "beenden" || "b" || "B":
-                userIsLoggedIn = false;
-                appIsRunning = false;
+                appIsRunning = closeApp(userIsLoggedIn, appIsRunning);
             }
           }
         } else {
