@@ -6,6 +6,7 @@ import 'functions/login_menu.dart';
 import 'functions/main_menu.dart';
 import 'functions/new_appointment.dart';
 import 'functions/get_diary_entry.dart';
+import 'models/diary.dart';
 
 // Was soll in mein cli Programm
 // Login mit Password
@@ -44,16 +45,21 @@ void main() {
                 String diaryEntry = getDiaryEntry();
                 mockDatabase.createDiaryEntry("", diaryEntry, false, 2);
                 print(
-                    "Was möchtest du als nächstes tuen?\nTagebucheintrag ergänzen (1) Hauptmenü (H) App beenden (B)");
+                    "Was möchtest du als nächstes tuen?\nTagebucheintrag ergänzen (1) Hauptmenü (H) App beenden (B) Diary auslesen (Diary)");
 
                 String newUserInput = stdin.readLineSync()!;
                 switch (newUserInput) {
                   case "1":
                     userIsLoggedIn = editLastDiaryEntry(userIsLoggedIn);
+                  case "Diary":
+                    List<DiaryEntry> diaryEntry =
+                        mockDatabase.getAllDiaryEntry();
+                    print(diaryEntry);
                   case "H" || "h":
                     userIsLoggedIn = true;
                   case "Beenden" || "beenden" || "b" || "B":
                     appIsRunning = false;
+                    userIsLoggedIn = false;
                   default:
                     print("Da ist was schiefgelaufen");
                 }
