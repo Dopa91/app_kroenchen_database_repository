@@ -2,8 +2,12 @@ class User {
   String loginName;
   String password;
 
-  User({
-    required this.loginName,
-    required this.password,
-  });
+  User(
+    this.loginName,
+    this.password,
+  );
+  @override
+  String toString() {
+    return "$loginName";
+  }
 }

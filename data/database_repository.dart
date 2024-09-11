@@ -26,4 +26,6 @@ abstract class DatabaseRepository {
   void editAppointment(String date, String name);
 // Termin löschen (deleteAppointment)
   void deleteAppointment(String date, String name);
+  // Alle Benutzer erhalten
+  List<User> getAllUsers();
 }

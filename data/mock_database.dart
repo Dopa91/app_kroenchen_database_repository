@@ -5,11 +5,14 @@ import 'database_repository.dart';
 
 class MockDatabase implements DatabaseRepository {
   List<DiaryEntry> diaryData = [];
-  List<User> userData = [];
+  List<User> userData = [User("Andreas", "Dopatka")];
   List<Appointment> appointmentData = [];
 
   @override
-  void createAppointment(String date, String name) {}
+  void createAppointment(String date, String name) {
+    Appointment newAppointment = Appointment(date: date, name: name);
+    appointmentData.add(newAppointment);
+  }
 
   @override
   void createDiaryEntry(
@@ -21,7 +24,7 @@ class MockDatabase implements DatabaseRepository {
 
   @override
   void createUser(String loginName, String password) {
-    User newLoginUser = User(loginName: loginName, password: password);
+    User newLoginUser = User(loginName, password);
     userData.add(newLoginUser);
   }
 
@@ -50,4 +53,9 @@ class MockDatabase implements DatabaseRepository {
 
   @override
   void showDiaryEntry() {}
+
+  @override
+  List<User> getAllUsers() {
+    return userData;
+  }
 }

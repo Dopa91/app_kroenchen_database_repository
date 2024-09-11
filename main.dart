@@ -1,6 +1,12 @@
 import 'dart:io';
-
-import 'functions_main.dart';
+import 'data/database_repository.dart';
+import 'data/mock_database.dart';
+import 'functions/close_app.dart';
+import 'functions/edit_last_diary_entry.dart';
+import 'functions/login_menu.dart';
+import 'functions/main_menu.dart';
+import 'functions/new_appointment.dart';
+import 'functions/write_diary_entry.dart';
 
 // Was soll in mein cli Programm
 // Login mit Password
@@ -8,6 +14,8 @@ import 'functions_main.dart';
 // Neuen Tagebucheintrag erstellen
 // Beenden
 void main() {
+  DatabaseRepository mockDatabase = MockDatabase();
+
   print("Herzlich Willkommen! \nIch freue mich dich begrüßen zu dürfen!");
   print("");
 
@@ -29,19 +37,24 @@ void main() {
           print("Willkommen zurück, Andreas!");
           print("");
           bool userIsLoggedIn = true;
-
+// umcoden
           while (userIsLoggedIn) {
             String userInputMenu = mainMenu();
             switch (userInputMenu) {
               case "1":
-                String newUserInput = writeDiaryEntry();
+                String diaryEntry = getDiaryEntry();
+                mockDatabase.createDiaryEntry("", diaryEntry, false, 2);
+                print(
+                    "Was möchtest du als nächstes tuen?\nTagebucheintrag ergänzen (1) Hauptmenü (H) App beenden (B)");
+
+                String newUserInput = stdin.readLineSync()!;
                 switch (newUserInput) {
                   case "1":
                     userIsLoggedIn = editLastDiaryEntry(userIsLoggedIn);
                   case "H" || "h":
                     userIsLoggedIn = true;
                   case "Beenden" || "beenden" || "b" || "B":
-                    appIsRunning = closeApp(userIsLoggedIn, appIsRunning);
+                    appIsRunning = false;
                   default:
                     print("Da ist was schiefgelaufen");
                 }
@@ -49,7 +62,8 @@ void main() {
                 userIsLoggedIn = newAppointment(userIsLoggedIn);
 
               case "Beenden" || "beenden" || "b" || "B":
-                appIsRunning = closeApp(userIsLoggedIn, appIsRunning);
+                appIsRunning = false;
+                userIsLoggedIn = false;
             }
           }
         } else {
