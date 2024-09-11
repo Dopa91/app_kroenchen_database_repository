@@ -1,10 +1,12 @@
+import '../models/appointment.dart';
+import '../models/diary.dart';
 import '../models/user.dart';
 import 'database_repository.dart';
 
 class MockDatabase implements DatabaseRepository {
-  List<String> diaryData = [];
-  List<String> userData = [];
-  List<String> appointmentData = [];
+  List<DiaryEntry> diaryData = [];
+  List<User> userData = [];
+  List<Appointment> appointmentData = [];
 
   @override
   void createAppointment(String date, String name) {}
