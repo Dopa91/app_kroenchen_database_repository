@@ -9,6 +9,16 @@ class MockDatabase implements DatabaseRepository {
   List<Appointment> appointmentData = [];
 
   @override
+  List<User> getAllUsers() {
+    return userData;
+  }
+
+  @override
+  List<DiaryEntry> getAllDiaryEntry() {
+    return diaryData;
+  }
+
+  @override
   void createAppointment(String date, String name) {
     Appointment newAppointment = Appointment(date: date, name: name);
     appointmentData.add(newAppointment);
@@ -53,14 +63,4 @@ class MockDatabase implements DatabaseRepository {
 
   @override
   void showDiaryEntry() {}
-
-  @override
-  List<User> getAllUsers() {
-    return userData;
-  }
-
-  @override
-  List<DiaryEntry> getAllDiaryEntry() {
-    return diaryData;
-  }
 }
