@@ -43,7 +43,8 @@ void main() {
             switch (userInputMenu) {
               case "1":
                 String diaryEntry = getDiaryEntry();
-                mockDatabase.createDiaryEntry("", diaryEntry, false, 2);
+                mockDatabase.createDiaryEntry(
+                    "12.09.2024", diaryEntry, false, 2);
                 print(
                     "Was möchtest du als nächstes tuen?\nTagebucheintrag ergänzen (1) Hauptmenü (H) App beenden (B) \nLetzten Tagebucheintrag anzeigen (D)");
 
