@@ -13,6 +13,6 @@ class DiaryEntry {
 
   @override
   String toString() {
-    return "$content";
+    return ("$date" "$content" "$hasFever" "$painScale");
   }
 }
