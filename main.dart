@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:math';
 import 'data/database_repository.dart';
 import 'data/mock_database.dart';
 import 'functions/edit_last_diary_entry.dart';
