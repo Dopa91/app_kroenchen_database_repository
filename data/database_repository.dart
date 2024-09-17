@@ -1,34 +1,32 @@
+import '../models/appointment.dart';
 import '../models/diary.dart';
 import '../models/user.dart';
 
 abstract class DatabaseRepository {
 // Einen neuen Benutzer hinzufügen (createUser)
-  void createUser(String loginName, String password);
+  void createUser(User user);
 // Bestehende Benutzerdaten bearbeiten ( editUser)
-  void editUser(String userName, User newUserName);
+  void editUser(User user);
 // Benutzerdaten löschen (deleteUser)
-  void deleteUser(String userName);
+  void deleteUser(User user);
 
 // Einen neuen Tagebucheintrag erstellen (createDiaryEntry)
-  void createDiaryEntry(
-      String date, String content, bool hasFever, int painScale);
+  void createDiaryEntry(DiaryEntry diaryEntry);
 // Den Tagebucheintrag anzeigen lassen (showDiaryEntry)
-  void showDiaryEntry();
+  DiaryEntry showDiaryEntry(DiaryEntry diaryEntry);
 // Tagebucheintrag bearbeiten ( editDiaryEntry)
-  void editDiaryEntry(
-      String date, String content, bool hasFever, int painScale);
+  void editDiaryEntry(DiaryEntry diaryEntry);
 // Tagebucheintrag löschen (deleteDiaryEntry)
-  void deleteDiaryEntry(
-      String date, String content, bool hasFever, int painScale);
+  void deleteDiaryEntry(DiaryEntry diaryEntry);
 
 // Einen neuen Termineintrag erstellen (createAppointment)
-  void createAppointment(String date, String name);
+  void createAppointment(Appointment appointment);
 // Den erstellten Termin  anzeigen lassen (showAppointment)
-  void showAppointment();
+  Appointment showAppointment(Appointment appointment);
 // Termine bearbeiten ( editAppointment)
-  void editAppointment(String date, String name);
+  void editAppointment(Appointment appointment);
 // Termin löschen (deleteAppointment)
-  void deleteAppointment(String date, String name);
+  void deleteAppointment(Appointment appointment);
 
   // Alle Benutzer erhalten
   List<User> getAllUsers();

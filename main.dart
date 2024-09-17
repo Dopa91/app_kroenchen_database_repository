@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 import 'data/database_repository.dart';
 import 'data/mock_database.dart';
 import 'functions/edit_last_diary_entry.dart';
@@ -7,6 +8,7 @@ import 'functions/login_menu.dart';
 import 'functions/main_menu.dart';
 import 'functions/new_appointment.dart';
 import 'functions/get_diary_entry.dart';
+import 'models/diary.dart';
 
 // Was soll in mein cli Programm
 // Login mit Password
@@ -42,9 +44,12 @@ void main() {
             String userInputMenu = mainMenu();
             switch (userInputMenu) {
               case "1":
-                String diaryEntry = getDiaryEntry();
-                mockDatabase.createDiaryEntry(
-                    "12.09.2024", diaryEntry, false, 2);
+                getDiaryEntry();
+                mockDatabase.createDiaryEntry(DiaryEntry(
+                    date: "170924",
+                    content: "",
+                    hasFever: false,
+                    painScale: 1));
                 print(
                     "Was möchtest du als nächstes tuen?\nTagebucheintrag ergänzen (1) Hauptmenü (H) App beenden (B) \nLetzten Tagebucheintrag anzeigen (D)");
 

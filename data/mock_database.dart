@@ -19,48 +19,48 @@ class MockDatabase implements DatabaseRepository {
   }
 
   @override
-  void createAppointment(String date, String name) {
-    Appointment newAppointment = Appointment(date: date, name: name);
+  void createAppointment(Appointment appointment) {
+    Appointment newAppointment = Appointment(date: "date", name: "name");
     appointmentData.add(newAppointment);
   }
 
   @override
-  void createDiaryEntry(
-      String date, String content, bool hasFever, int painScale) {
-    DiaryEntry newEntry = DiaryEntry(
-        date: date, content: content, hasFever: hasFever, painScale: painScale);
+  void createDiaryEntry(diaryEntry) {
+    DiaryEntry newEntry = diaryEntry;
     diaryData.add(newEntry);
   }
 
   @override
-  void createUser(String loginName, String password) {
-    User newLoginUser = User(loginName, password);
+  void createUser(User user) {
+    User newLoginUser = User("loginName", "password");
     userData.add(newLoginUser);
   }
 
   @override
-  void deleteAppointment(String date, String name) {}
+  void deleteAppointment(Appointment appointment) {}
 
   @override
-  void deleteDiaryEntry(
-      String date, String content, bool hasFever, int painScale) {}
+  void deleteDiaryEntry(DiaryEntry diaryEntry) {}
 
   @override
-  void deleteUser(String userName) {}
+  void deleteUser(User user) {}
 
   @override
-  void editAppointment(String date, String name) {}
+  void editAppointment(Appointment appointment) {}
 
   @override
-  void editDiaryEntry(
-      String date, String content, bool hasFever, int painScale) {}
+  void editDiaryEntry(DiaryEntry diaryEntry) {}
 
   @override
-  void editUser(String userName, User newUserName) {}
+  void editUser(User user) {}
 
   @override
-  void showAppointment() {}
+  Appointment showAppointment(Appointment appointment) {
+    return appointment;
+  }
 
   @override
-  void showDiaryEntry() {}
+  DiaryEntry showDiaryEntry(DiaryEntry diaryEntry) {
+    return diaryEntry;
+  }
 }

@@ -4,7 +4,7 @@ import 'models/user.dart';
 
 void main() {
   DatabaseRepository mockDatabase = MockDatabase();
-  mockDatabase.createUser("Mina", "Leonie");
+  mockDatabase.createUser(User("Leonie", "Mina"));
 
   List<User> allUsers = mockDatabase.getAllUsers();
 
